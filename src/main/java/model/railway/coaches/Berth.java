@@ -2,6 +2,11 @@ package model.railway.coaches;
 
 import model.railway.Coach;
 
+/**
+ * Berth coach (плацкарт)
+ * With 54 places available, 1 item of baggage
+ *  per person and 1 comfort star
+ */
 public class Berth extends Coach {
 
     public Berth() {

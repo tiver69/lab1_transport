@@ -5,6 +5,12 @@ import model.railway.Train;
 
 import java.util.ArrayList;
 
+/**
+ * Regular class of trains, which includes
+ * - number of berth coaches in train
+ * - number of compartment coaches in train
+ * - number of de luxe coaches in train
+ */
 public class Regular extends Train {
     private byte berthCoach;
     private byte compartmentCoach;

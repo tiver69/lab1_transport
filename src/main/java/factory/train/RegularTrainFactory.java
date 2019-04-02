@@ -6,6 +6,11 @@ import model.railway.trains.Regular;
 import model.railway.coaches.*;
 import java.util.ArrayList;
 
+/**
+ * Abstract factory for creating regular train entities
+ * By default with 1 de luxe, 4 compartment
+ * and 5 berth coaches
+ */
 public class RegularTrainFactory extends TrainFactory {
     private byte deLuxeCoach;
     private byte compartmentCoach;
@@ -25,19 +30,6 @@ public class RegularTrainFactory extends TrainFactory {
         deLuxeCoach = 1;
         compartmentCoach = 4;
         berthCoach = 5;
-    }
-
-    public RegularTrainFactory setBerthCoach(byte berthCoach) {
-        this.berthCoach = berthCoach;
-        return this;
-    }
-
-    public void setCompartmentCoach(byte compartmentCoach) {
-        this.compartmentCoach = compartmentCoach;
-    }
-
-    public void setDeLuxeCoach(byte deLuxeCoach) {
-        this.deLuxeCoach = deLuxeCoach;
     }
 
     protected void setTrain(){

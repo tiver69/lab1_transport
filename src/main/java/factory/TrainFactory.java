@@ -5,6 +5,9 @@ import model.railway.Coach;
 
 import java.util.ArrayList;
 
+/**
+ * Abstract factory for creating train entities
+ */
 public abstract class TrainFactory {
     protected int id;
     protected String departure;
@@ -17,6 +20,10 @@ public abstract class TrainFactory {
         this.destination = destination;
     }
 
+    /**
+     * Creates array with specified number
+     * of each class coaches
+     */
     protected abstract void setTrain();
     public abstract Train createTrain();
 }
