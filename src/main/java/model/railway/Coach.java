@@ -1,4 +1,4 @@
-package model.railway.coach;
+package model.railway;
 
 public abstract class Coach {
     private byte passenger;
@@ -35,6 +35,6 @@ public abstract class Coach {
 
     @Override
     public String toString() {
-        return  String.format("%d/%d free}\n",free, passenger);
+        return  String.format("[%d/%d free]\n",free, passenger);
     }
 }

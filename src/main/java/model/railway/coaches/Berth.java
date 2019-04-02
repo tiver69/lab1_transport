@@ -1,4 +1,6 @@
-package model.railway.coach;
+package model.railway.coaches;
+
+import model.railway.Coach;
 
 public class Berth extends Coach {
 
@@ -8,6 +10,6 @@ public class Berth extends Coach {
 
     @Override
     public String toString() {
-        return String.format("%-5s %-11s {", "*","Berth")+super.toString();
+        return String.format("%-5s %-11s ", "*","Berth")+super.toString();
     }
 }

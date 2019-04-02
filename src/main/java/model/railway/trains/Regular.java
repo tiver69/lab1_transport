@@ -1,10 +1,11 @@
-package model.railway;
+package model.railway.trains;
 
-import model.railway.coach.Coach;
+import model.railway.Coach;
+import model.railway.Train;
 
 import java.util.ArrayList;
 
-public class Regular extends Train{
+public class Regular extends Train {
     private byte berthCoach;
     private byte compartmentCoach;
     private byte deLuxeCoach;
@@ -19,6 +20,6 @@ public class Regular extends Train{
 
     @Override
     public String toString() {
-        return "RegularTrain" + super.toString() + "}";
+        return "Regular Train" + super.toString() + "}";
     }
 }

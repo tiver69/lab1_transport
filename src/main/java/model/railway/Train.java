@@ -1,7 +1,5 @@
 package model.railway;
 
-import model.railway.coach.Coach;
-
 import java.util.ArrayList;
 
 public abstract class Train {
