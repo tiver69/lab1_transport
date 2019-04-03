@@ -1,6 +1,5 @@
 package service;
 
-import factory.train.*;
 import model.railway.*;
 import model.railway.trains.*;
 import org.junit.Assert;
@@ -19,12 +18,19 @@ public class TrainServiceTest {
 
     @BeforeClass
     public static void setUpClass(){
-        IntercityTrainFactory bigIntercityFactory = new IntercityTrainFactory(732, "Zaporizhzhya",
-                "Kyiv", (byte)10, (byte)10);
-        intercityTrain = bigIntercityFactory.createTrain();
-        RegularTrainFactory bigRegularFactory = new RegularTrainFactory(72, "Zaporizhzhya",
-                "Kyiv", (byte)2, (byte)10, (byte)15 );
-        regularTrain = bigRegularFactory.createTrain();
+
+        intercityTrain = new Intercity.IntercityBuilder(732,
+                "Zaporizhzhya","Kyiv" )
+                .setSittingFirstCoach((byte)10)
+                .setSittingSecondCoach((byte)10)
+                .build();
+
+        regularTrain = new Regular.RegularBuilder(72, "Zaporizhzhya",
+                "Kyiv")
+                .setDeLuxeCoach((byte)2)
+                .setCompartmentCoach((byte)10)
+                .setBerthCoach((byte)15)
+                .build();
     }
 
     @Test

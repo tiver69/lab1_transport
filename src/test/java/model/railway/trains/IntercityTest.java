@@ -1,7 +1,5 @@
 package model.railway.trains;
 
-import factory.train.IntercityTrainFactory;
-import factory.train.RegularTrainFactory;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -15,16 +13,30 @@ public class IntercityTest {
 
     @BeforeClass
     public static void setUpClass(){
-        IntercityTrainFactory bigIntercityFactory = new IntercityTrainFactory(732, "Zaporizhzhya",
-                "Kyiv", (byte)10, (byte)10);
-        intercityTrain1 = bigIntercityFactory.createTrain();
-        intercityTrain2 = bigIntercityFactory.createTrain();
-        IntercityTrainFactory bigIntercityFactory2 = new IntercityTrainFactory(732, "Kyiv",
-                "Zaporizhzhya", (byte)10, (byte)10);
-        intercityTrain3 = bigIntercityFactory2.createTrain();
-        RegularTrainFactory bigRegularFactory = new RegularTrainFactory(72, "Zaporizhzhya",
-                "Kyiv", (byte)2, (byte)10, (byte)15 );
-        regularTrain1 = bigRegularFactory.createTrain();
+        regularTrain1 = new Regular.RegularBuilder(72, "Zaporizhzhya",
+                "Kyiv")
+                .setDeLuxeCoach((byte)2)
+                .setCompartmentCoach((byte)10)
+                .setBerthCoach((byte)15)
+                .build();
+
+        intercityTrain1 = new Intercity.IntercityBuilder(732,
+                "Zaporizhzhya","Kyiv" )
+                .setSittingFirstCoach((byte)10)
+                .setSittingSecondCoach((byte)10)
+                .build();
+
+        intercityTrain2 = new Intercity.IntercityBuilder(732,
+                "Zaporizhzhya","Kyiv" )
+                .setSittingFirstCoach((byte)10)
+                .setSittingSecondCoach((byte)10)
+                .build();
+
+        intercityTrain3 = new Intercity.IntercityBuilder(732,
+                "Kyiv","Zaporizhzhya" )
+                .setSittingFirstCoach((byte)10)
+                .setSittingSecondCoach((byte)10)
+                .build();
     }
 
     @Test

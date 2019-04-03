@@ -1,32 +1,31 @@
-import factory.train.IntercityTrainFactory;
-import factory.train.RegularTrainFactory;
-import model.railway.Coach;
-import model.railway.Train;
+import model.railway.*;
 import model.railway.trains.Intercity;
 import model.railway.trains.Regular;
 import service.TrainService;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-//    private static Regular regular;
-//    private static Intercity intercity;
     private static ArrayList<Train> trains = new ArrayList<Train>();
 
     public static void main(String[] args) {
 
-        IntercityTrainFactory bigIntercity = new IntercityTrainFactory(732, "Zaporizhzhya",
-                "Kyiv", (byte)10, (byte)10);
+        Regular regular = new Regular.RegularBuilder(72, "Zaporizhzhya",
+                "Kyiv")
+                .setDeLuxeCoach((byte)2)
+                .setCompartmentCoach((byte)10)
+                .setBerthCoach((byte)15)
+                .build();
 
-        RegularTrainFactory bigRegular = new RegularTrainFactory(72, "Zaporizhzhya",
-                "Kyiv", (byte)2, (byte)10, (byte)15 );
+        Intercity intercity = new Intercity.IntercityBuilder(732,
+                "Zaporizhzhya","Kyiv" )
+                .setSittingFirstCoach((byte)15)
+                .setSittingSecondCoach((byte)15)
+                .build();
 
-        trains.add(bigRegular.createTrain());
-        trains.add(bigIntercity.createTrain());
-//        regular = bigRegular.createTrain();
-//        intercity = bigIntercity.createTrain();
+        trains.add(regular);
+        trains.add(intercity);
 
         printAll();
 
