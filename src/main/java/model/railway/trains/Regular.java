@@ -37,7 +37,20 @@ public class Regular extends Train {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+//        if (obj == null) return false;
+        if (!(obj instanceof Regular)) return false;
+        if (!super.equals(obj)) return false;
+
+        Regular otherTrain = (Regular) obj;
+        return berthCoach == otherTrain.getBerthCoach()
+                && compartmentCoach == otherTrain.getCompartmentCoach()
+                && deLuxeCoach == otherTrain.deLuxeCoach;
+    }
+
+    @Override
     public String toString() {
-        return "Regular Train" + super.toString() + "}";
+        return "Regular Train" + super.toString();
     }
 }

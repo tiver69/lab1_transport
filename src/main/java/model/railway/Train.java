@@ -31,12 +31,35 @@ public abstract class Train {
         coaches.get(coachNum).setFree(free);
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getDeparture() {
+        return departure;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+//        if (obj == null) return false;
+        if (!(obj instanceof Train)) return false;
+        Train otherTrain = (Train)obj;
+        return id == otherTrain.id
+                && departure.equals(otherTrain.departure)
+                && destination.equals(otherTrain.destination);
+    }
+
     @Override
     public String toString() {
         String trainString = String.format("#%d %s - %s:\n",id,departure,destination);
         for (int i = 0; i< coaches.size(); i++){
             trainString = trainString + String.format("%3d: %s",i+1, coaches.get(i).toString());
         }
-        return trainString;
+        return trainString + "}\n";
     }
 }

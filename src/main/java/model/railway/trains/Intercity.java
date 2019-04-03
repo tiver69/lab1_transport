@@ -30,7 +30,19 @@ public class Intercity extends Train {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+//        if (obj == null) return false;
+        if (!(obj instanceof Intercity)) return false;
+        if (!super.equals(obj)) return false;
+
+        Intercity otherTrain = (Intercity) obj;
+        return sittingFirstCoach == otherTrain.getSittingFirstCoach()
+                && sittingSecondCoach == otherTrain.getSittingSecondCoach();
+    }
+
+    @Override
     public String toString() {
-        return "Intercity Train" + super.toString() + "}";
+        return "Intercity Train" + super.toString();
     }
 }
