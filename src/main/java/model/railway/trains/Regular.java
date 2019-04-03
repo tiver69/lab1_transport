@@ -24,6 +24,18 @@ public class Regular extends Train {
         this.deLuxeCoach = deLuxeCoach;
     }
 
+    public byte getBerthCoach() {
+        return berthCoach;
+    }
+
+    public byte getCompartmentCoach() {
+        return compartmentCoach;
+    }
+
+    public byte getDeLuxeCoach() {
+        return deLuxeCoach;
+    }
+
     @Override
     public String toString() {
         return "Regular Train" + super.toString() + "}";

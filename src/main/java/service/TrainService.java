@@ -8,27 +8,33 @@ import java.util.ArrayList;
 public class TrainService {
 
     /**
-     * Print all available coaches with
-     * total passengers places between parameters
+     * Search for all coaches with
+     * total passenger places between parameters
      * @param train  - specific train entity for filtering
      * @param lover  - lower border of places
      * @param higher - higher order of places
+     * @return array list of filtered coaches
      */
-    public static void passengersBetween(Train train, byte lover, byte higher){
+    public static ArrayList<Coach> passengersBetween(Train train, byte lover, byte higher){
         ArrayList<Coach> trainCoaches = train.getCoaches();
-        for (int i = 0; i < trainCoaches.size(); i++){
+        ArrayList<Coach> resultCoaches = new ArrayList();
+        for (int i = 0; i < trainCoaches.size(); i++) {
             Coach coach = trainCoaches.get(i);
-            if (coach.getPassenger()>lover && coach.getPassenger() < higher)
-                System.out.format("%3d: %s",i+1, coach.toString());
+            if (coach.getPassenger() > lover && coach.getPassenger() < higher) {
+//                System.out.format("%3d: %s", i + 1, coach.toString());
+                resultCoaches.add(coach);
+            }
         }
+        return resultCoaches;
     }
 
     /**
-     * Sort and print all coaches from lower comfort class
+     * Sort all coaches from lower comfort class
      * to higher
      * @param train - train for sorting
+     * @return array list with sorted values
      */
-    public static void AscendingComfortSort(Train train){
+    public static ArrayList<Coach> AscendingComfortSort(Train train){
         ArrayList<Coach> trainCoaches = train.getCoaches();
         for (int i = 0; i < trainCoaches.size(); i++){
             for (int j = i + 1; j < trainCoaches.size(); j++){
@@ -39,7 +45,8 @@ public class TrainService {
                 }
             }
         }
-        printCoachesArray(trainCoaches);
+//        printCoachesArray(trainCoaches);
+        return trainCoaches;
     }
 
     /**

@@ -21,6 +21,14 @@ public class Intercity extends Train {
         this.sittingSecondCoach = sittingSecondCoach;
     }
 
+    public byte getSittingFirstCoach() {
+        return sittingFirstCoach;
+    }
+
+    public byte getSittingSecondCoach() {
+        return sittingSecondCoach;
+    }
+
     @Override
     public String toString() {
         return "Intercity Train" + super.toString() + "}";
