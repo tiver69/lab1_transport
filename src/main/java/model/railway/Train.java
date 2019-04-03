@@ -8,7 +8,7 @@ import java.util.ArrayList;
  *  * - number of route
  *  * - departure station
  *  * - destination station
- *  * - list of coaches in coaches
+ *  * - list of coaches in train
  */
 public abstract class Train {
     private int id;

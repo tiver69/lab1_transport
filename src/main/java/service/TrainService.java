@@ -23,6 +23,11 @@ public class TrainService {
         }
     }
 
+    /**
+     * Sort and print all coaches from lower comfort class
+     * to higher
+     * @param train - train for sorting
+     */
     public static void AscendingComfortSort(Train train){
         ArrayList<Coach> trainCoaches = train.getCoaches();
         for (int i = 0; i < trainCoaches.size(); i++){
@@ -35,6 +40,34 @@ public class TrainService {
             }
         }
         printCoachesArray(trainCoaches);
+    }
+
+    /**
+     * Count total passenger capacity
+     * @param train - for counting
+     * @return - passenger capacity
+     */
+    public static int countPassengers(Train train){
+        ArrayList<Coach> trainCoaches = train.getCoaches();
+        int sumPassengers = 0;
+        for (Coach coach: trainCoaches){
+            sumPassengers+=coach.getPassenger();
+        }
+        return sumPassengers;
+    }
+
+    /**
+     * Count total passenger capacity
+     * @param train - for counting
+     * @return - passenger capacity
+     */
+    public static int countBaggage(Train train){
+        ArrayList<Coach> trainCoaches = train.getCoaches();
+        int sumBaggage = 0;
+        for (Coach coach: trainCoaches){
+            sumBaggage+=coach.getPassenger()*coach.getBaggageCoefficient();
+        }
+        return sumBaggage;
     }
 
     private static void printCoachesArray(ArrayList<Coach> trainCoaches){
