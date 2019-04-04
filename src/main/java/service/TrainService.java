@@ -1,7 +1,7 @@
 package service;
 
-import model.railway.Coach;
-import model.railway.Train;
+import model.entity.Coach;
+import model.entity.Train;
 
 import java.util.ArrayList;
 

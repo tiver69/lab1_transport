@@ -1,7 +1,7 @@
 package service;
 
-import model.railway.*;
-import model.railway.trains.*;
+import model.entity.*;
+import model.entity.trains.*;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;

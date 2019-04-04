@@ -1,4 +1,4 @@
-package model.railway;
+package model.entity;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,6 @@
-package model.railway.coaches;
+package model.entity.coaches;
 
-import model.railway.Coach;
+import model.entity.Coach;
 
 /**
  * Compartment coach (купе)

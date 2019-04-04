@@ -1,10 +1,10 @@
-package model.railway.trains;
+package model.entity.trains;
 
-import model.railway.Coach;
-import model.railway.Train;
-import model.railway.coaches.Berth;
-import model.railway.coaches.Compartment;
-import model.railway.coaches.DeLuxe;
+import model.entity.Coach;
+import model.entity.Train;
+import model.entity.coaches.Berth;
+import model.entity.coaches.Compartment;
+import model.entity.coaches.DeLuxe;
 
 import java.util.ArrayList;
 

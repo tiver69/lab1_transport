@@ -1,4 +1,4 @@
-package model.railway.trains;
+package model.entity.trains;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;

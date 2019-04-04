@@ -1,9 +1,9 @@
-package model.railway.trains;
+package model.entity.trains;
 
-import model.railway.Coach;
-import model.railway.Train;
-import model.railway.coaches.SeatingFirst;
-import model.railway.coaches.SeatingSecond;
+import model.entity.Coach;
+import model.entity.Train;
+import model.entity.coaches.SeatingFirst;
+import model.entity.coaches.SeatingSecond;
 
 import java.util.ArrayList;
 

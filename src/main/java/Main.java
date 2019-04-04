@@ -1,6 +1,6 @@
-import model.railway.*;
-import model.railway.trains.Intercity;
-import model.railway.trains.Regular;
+import model.entity.*;
+import model.entity.trains.Intercity;
+import model.entity.trains.Regular;
 import service.TrainService;
 
 import java.util.ArrayList;
