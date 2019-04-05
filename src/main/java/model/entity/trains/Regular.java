@@ -1,7 +1,6 @@
 package model.entity.trains;
 
-import model.entity.Coach;
-import model.entity.Train;
+import model.entity.*;
 import model.entity.coaches.Berth;
 import model.entity.coaches.Compartment;
 import model.entity.coaches.DeLuxe;
@@ -80,6 +79,10 @@ public class Regular extends Train {
             this.destination = destination;
         }
 
+        public void setCoaches(ArrayList<Coach> coaches) {
+            this.coaches = coaches;
+        }
+
         public RegularBuilder setBerthCoach(byte berthCoach) {
             this.berthCoach = berthCoach;
             return this;
@@ -96,20 +99,27 @@ public class Regular extends Train {
         }
 
         public Regular build(){
+            if (coaches == null)
+                generateCoaches();
+            return new Regular(this);
+        }
+
+        private void generateCoaches(){
             coaches = new ArrayList();
 
-            for (int i=0; i<deLuxeCoach; i++){
-                coaches.add(new DeLuxe());
+            for (int i = 0; i < deLuxeCoach; i++){
+                coaches.add(new DeLuxe("Luxe conductor" + Integer.toString(i),
+                        true, true));
             }
 
-            for (int i=0; i<compartmentCoach; i++){
-                coaches.add(new Compartment());
+            for (int i = 0; i < compartmentCoach; i++){
+                coaches.add(new Compartment("Compartment conductor" + Integer.toString(i),
+                        true));
             }
 
-            for (int i=0; i<berthCoach; i++){
-                coaches.add(new Berth());
+            for (int i = 0; i < berthCoach; i++){
+                coaches.add(new Berth("Berth conductor" + Integer.toString(i)));
             }
-            return new Regular(this);
         }
     }
 

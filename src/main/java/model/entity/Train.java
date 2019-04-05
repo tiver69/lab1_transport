@@ -2,7 +2,6 @@ package model.entity;
 
 import java.util.ArrayList;
 
-
 /**
  * Abstract class for trains, which includes
  *  * - number of route
@@ -27,8 +26,8 @@ public abstract class Train {
         return (ArrayList<Coach>)coaches.clone();
     }
 
-    public void setCoachFreePlaces(byte coachNum, byte free){
-        coaches.get(coachNum).setFree(free);
+    public Coach getCoachByNumber(byte coachNum){
+        return coaches.get(coachNum);
     }
 
     public int getId() {
@@ -48,10 +47,12 @@ public abstract class Train {
         if (this == obj) return true;
 //        if (obj == null) return false;
         if (!(obj instanceof Train)) return false;
+
         Train otherTrain = (Train)obj;
         return id == otherTrain.id
                 && departure.equals(otherTrain.departure)
-                && destination.equals(otherTrain.destination);
+                && destination.equals(otherTrain.destination)
+                && coaches.equals(otherTrain.getCoaches());
     }
 
     @Override
@@ -60,6 +61,6 @@ public abstract class Train {
         for (int i = 0; i< coaches.size(); i++){
             trainString = trainString + String.format("%3d: %s",i+1, coaches.get(i).toString());
         }
-        return trainString + "}\n";
+        return trainString;
     }
 }
