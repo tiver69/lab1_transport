@@ -1,10 +1,13 @@
 package model.entity.trains;
 
+import model.entity.coaches.SeatingFirst;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 
 public class IntercityTest {
 
@@ -22,35 +25,36 @@ public class IntercityTest {
 
         intercityTrain1 = new Intercity.IntercityBuilder(732,
                 "Zaporizhzhya","Kyiv" )
-                .setSittingFirstCoach((byte)10)
+                .setSittingFirstCoach((byte)2)
                 .setSittingSecondCoach((byte)10)
                 .build();
 
         intercityTrain2 = new Intercity.IntercityBuilder(732,
                 "Zaporizhzhya","Kyiv" )
-                .setSittingFirstCoach((byte)10)
+                .setSittingFirstCoach((byte)2)
                 .setSittingSecondCoach((byte)10)
                 .build();
 
         intercityTrain3 = new Intercity.IntercityBuilder(732,
-                "Kyiv","Zaporizhzhya" )
+                "Zaporizhzhya","Kyiv" )
                 .setSittingFirstCoach((byte)10)
                 .setSittingSecondCoach((byte)10)
                 .build();
+        ((SeatingFirst)intercityTrain3.getCoachByNumber((byte)2)).setLunchAvailable(false);
     }
 
     @Test
     public void shouldReturnTrueWithIT12() {
-        Assert.assertTrue(intercityTrain2.equals(intercityTrain1));
+        Assert.assertThat(intercityTrain2, equalTo(intercityTrain1));
     }
 
     @Test
     public void shouldReturnFalseWithIT13() {
-        Assert.assertFalse(intercityTrain1.equals(intercityTrain3));
+        Assert.assertThat(intercityTrain1, is(not(equalTo(intercityTrain3))));
     }
 
     @Test
     public void shouldReturnFalseWithITAndRT() {
-        Assert.assertFalse(intercityTrain1.equals(regularTrain1));
+        Assert.assertThat(intercityTrain1, is(not(equalTo(regularTrain1))));
     }
 }

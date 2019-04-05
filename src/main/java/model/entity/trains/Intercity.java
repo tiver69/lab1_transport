@@ -1,7 +1,6 @@
 package model.entity.trains;
 
-import model.entity.Coach;
-import model.entity.Train;
+import model.entity.*;
 import model.entity.coaches.SeatingFirst;
 import model.entity.coaches.SeatingSecond;
 
@@ -79,16 +78,20 @@ public class Intercity extends Train {
         }
 
         public Intercity build() {
+            if (coaches == null)
+                generateCoaches();
+            return new Intercity(this);
+        }
 
+        private void generateCoaches(){
             coaches = new ArrayList();
             for (int i=0; i<this.sittingFirstCoach; i++){
-                coaches.add(new SeatingFirst());
+                coaches.add(new SeatingFirst(true));
             }
 
             for (int i=0; i<this.sittingSecondCoach; i++){
-                coaches.add(new SeatingSecond());
+                coaches.add(new SeatingSecond(true,true));
             }
-            return new Intercity(this);
         }
     }
 }

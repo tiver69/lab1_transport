@@ -4,7 +4,9 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 
 public class RegularTest {
 
@@ -44,16 +46,16 @@ public class RegularTest {
 
     @Test
     public void shouldReturnTrueWithRT23() {
-        Assert.assertTrue(regularTrain2.equals(regularTrain3));
+        Assert.assertThat(regularTrain2, equalTo(regularTrain3));
     }
 
     @Test
     public void shouldReturnFalseWithRT13() {
-        Assert.assertFalse(regularTrain1.equals(regularTrain3));
+        Assert.assertThat(regularTrain1, is(not(equalTo(regularTrain3))));
     }
 
     @Test
     public void shouldReturnFalseWithITAndRT() {
-        Assert.assertFalse(intercityTrain1.equals(regularTrain1));
+        Assert.assertThat(intercityTrain1, is(not(equalTo(regularTrain1))));
     }
 }

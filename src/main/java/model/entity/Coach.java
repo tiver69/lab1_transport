@@ -1,6 +1,5 @@
 package model.entity;
 
-
 /**
  * Abstract class for train coaches, which includes
  * - total number of passengers in coach
@@ -47,7 +46,21 @@ public abstract class Coach {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+//        if (obj == null) return false;
+        if (!(obj instanceof Coach)) return false;
+
+        System.out.println("here");
+
+        Coach otherTrain = (Coach)obj;
+        return passenger == otherTrain.getPassenger()
+                && baggageCoefficient == otherTrain.getBaggageCoefficient()
+                && star == otherTrain.getStar();
+    }
+
+    @Override
     public String toString() {
-        return  String.format("[%d/%d free]\n",free, passenger);
+        return  String.format("[%d/%d free]",free, passenger);
     }
 }
